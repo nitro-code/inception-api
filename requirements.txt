@@ -1,0 +1,10 @@
+gunicorn
+flask
+simplejson
+numpy
+scipy
+keras
+h5py
+pillow
+pyyaml
+tensorflow
