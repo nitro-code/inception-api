@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from flask import Flask, request
+from flask_cors import CORS, cross_origin
 import urllib2 as urllib
 import json
 
@@ -11,6 +12,8 @@ import model
 
 
 app = Flask(__name__)
+CORS(app)
+
 
 class NumpyEncoder(json.JSONEncoder):
     def default(self, obj):

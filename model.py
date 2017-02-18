@@ -18,11 +18,11 @@ def predict_pil(pillow_img):
 def predict_nparray(img_as_array):
     global graph
 
-    img_as_array = np.expand_dims(img_as_array, axis=0)
-    img_as_array = preprocess_input(img_as_array)
+    img_batch_as_array = np.expand_dims(img_as_array, axis=0)
+    img_batch_as_array = preprocess_input(img_batch_as_array)
 
     with graph.as_default():
-        preds = model.predict(img_as_array)
+        preds = model.predict(img_batch_as_array)
 
     decoded_preds = decode_predictions(preds, top=3)[0]
     predictions = [{'label': label, 'descr': description, 'prob': probability} for label,description, probability in decoded_preds]
